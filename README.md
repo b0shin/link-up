@@ -17,3 +17,15 @@
 4. Results are filtered using live data from Google Sheets
 
 ## Folder Structure
+
+## Built With
+
+- HTML5 + CSS3
+- Vanilla JavaScript
+- Google Sheets (via Tabletop.js or Sheets API)
+
+## Author
+
+Sci — building secure, thoughtful tools with impact.
+
+---
