@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Link Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"] {
+      padding: 0.75rem;
+      font-size: 1rem;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 0.75rem 1.25rem;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .categories {
+      margin-top: 2rem;
+      display: none; /* starts hidden */
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .tile {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .tile:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Link Up</h1>
+  <p>Enter your ZIP code to get connected to local resources</p>
+  <input type="text" id="zipInput" placeholder="ZIP Code" maxlength="5" />
+  <button onclick="showCategories()">Search</button>
+
+  <div class="categories" id="categoryTiles">
+    <div class="tile" onclick="goToShelterUp()">🛌 Shelter Up</div>
+    <div class="tile" onclick="window.location.href='eat-up.html'">🥪 Eat Up</div>
+    <div class="tile" onclick="window.location.href='suit-up.html'">👕 Suit Up</div>
+    <div class="tile" onclick="window.location.href='heal-up.html'">💊 Heal Up</div>
+    <div class="tile" onclick="window.location.href='skill-up.html'">📚 Skill Up</div>
+    <div class="tile" onclick="window.location.href='clean-up.html'">🚿 Clean Up</div>
+  </div>
+
+  <script>
+    function showCategories() {
+      const zip = document.getElementById('zipInput').value;
+      if (/^\d{5}$/.test(zip)) {
+        document.getElementById('categoryTiles').style.display = 'grid';
+        // Later: fetch filtered data from sh.1 based on ZIP
+      } else {
+        alert('Please enter a valid 5-digit ZIP code');
+      }
+    }
+
+    function goToShelterUp() {
+      const zip = document.getElementById('zipInput').value;
+      if (/^\d{5}$/.test(zip)) {
+        window.location.href = `shelter-up.html?zip=${zip}`;
+      } else {
+        alert('Please enter a valid 5-digit ZIP code');
+      }
+    }
+  </script>
+
+</body>
+</html>

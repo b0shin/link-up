@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shelter Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      color: #0078d4;
+      font-weight: bold;
+    }
+    .results {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+    }
+    .result {
+      background: white;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-link">← Back to Link Up</a>
+  <h1>🛌 Shelter Up</h1>
+  <p>Available housing and shelter resources near you:</p>
+
+  <div class="results" id="resultsContainer">
+    <!-- Dynamic results will go here -->
+    <div class="result">
+      <strong>Example Shelter</strong><br>
+      123 Hope Street, Austin, TX<br>
+      Open 24 hours | Phone: (512) 555-1234
+    </div>
+  </div>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const zip = params.get('zip');
+
+  if (zip) {
+    document.querySelector('p').textContent = `Showing shelter results for ZIP: ${zip}`;
+    // Later: filter your Google Sheet data using this ZIP
+  } else {
+    document.querySelector('p').textContent = 'No ZIP code provided.';
+  }
+</script>
+
+</body>
+</html>
